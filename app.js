@@ -5,9 +5,14 @@ import {
   getQuote,
   createQuote,
 } from "./database.js";
-
+import cors from "cors";
 const app = express();
 const PORT = 8080;
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.get("/", (req, res) => {
   throw new Error("BROKEN"); // Express will catch this on its own.
